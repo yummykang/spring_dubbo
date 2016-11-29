@@ -3,6 +3,8 @@ package me.yummykang;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+
 /**
  * desc the file.
  *
@@ -20,6 +22,12 @@ public class Launcher {
         getLocalip();
         logger.info("开始初始化core服务");
         BeanFactoryUtil.init();
+
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
